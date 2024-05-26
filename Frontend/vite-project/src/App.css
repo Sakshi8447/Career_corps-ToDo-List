@@ -1,0 +1,100 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; 
+} */
+
+.main-heading {
+  text-align: center;
+
+}
+
+.input-button {
+  display: flex;
+  width: 95%;
+  justify-content: center;
+  margin: auto;
+}
+
+.input-box{
+  padding: 15px 30px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  /* width: 400px; */
+
+}
+
+.input-box:focus{
+  outline: none;
+  border: 1px solid #007bff;
+}
+
+.btn{
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.task-container{
+
+  /* margin-top: 3rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+  margin-top: 3rem;
+
+  height: 400px;
+  /* overflow: hidden; */
+  overflow-y: auto;
+}
+
+.todo{
+  margin-top: 10px;
+  display: flex;
+  border: 1px solid black;
+  align-items: center;
+  /* width: 50%; */
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: 0;
+}
+
+.todo .checkbox .icon, .icon{
+  font-size: 25px;
+}
+
+
+.todo .todo-task {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+  margin: 8px;
+}
+
+.todo .checkbox{
+  display: flex;
+  /* border: 1px solid red; */
+  align-items: center;
+  width: 40%;
+  /* justify-content: space-between; */
+}
+
+
+@media (max-width: 741px){ 
+
+.task-container{
+  width: 75%;
+}
+.todo .todo-task{
+  font-size: 18px;
+  font-weight: 300;
+}
+
+}
