@@ -1,8 +1,10 @@
 import dotenv from 'dotenv' // for the dot env package
 import express from 'express';
-import mongoose from 'mongoose'; // import the mongoose package for db 
+//import mongoose from 'mongoose'; // import the mongoose package for db 
 import { Task } from './src/models/task.models.js';
 import cors from 'cors';
+import DBConnect from "./src/db/index.js"
+
 
 const app = express(); // express server created.
 dotenv.config();
@@ -17,17 +19,33 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // to let the express use json syntax.
 
 
-const connectDB = async () => {
-    try {
-        const connectionStream = await mongoose.connect('mongodb://127.0.0.1:27017/task');
-        console.log(connectionStream.connection.host);
-    } catch (error) {
-        console.log(`MongoDB Connection Error Occured ${error}`);
-        process.exit();
-    }
-}
+// const connectDB = async () => {
+//     try {
+//         const connectionStream = await mongoose.connect('mongodb://127.0.0.1:27017/task');
+//         console.log(connectionStream.connection.host);
+//     } catch (error) {
+//         console.log(`MongoDB Connection Error Occured ${error}`);
+//         process.exit();
+//     }
+// }
 
-connectDB();
+// connectDB();
+
+console.log(process.env.DATABASE_URL)
+
+// check the DB connection
+DBConnect().then(() => {
+   app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+
+   })
+   console.log("Db is successfully connected");
+
+}).catch((err) => {
+   console.log("Db connection error" + err);
+})
+
+
 
 const port = process.env.PORT || 3000; // this will read the port from dotenv file
 
@@ -85,7 +103,7 @@ app.delete('/api/deleteTask/:id', (req, res) => {
     Task.findByIdAndDelete({ _id: id }).then(result => { res.status(200).json(result) }).catch(err => res.status(404).json(err))
 })
 
-app.listen(port, () => {
-    // console.log('server is listening on port' + port);
-    console.log(`server is listening on port ${port}`); // ES6 Standard
-});
+// app.listen(port, () => {
+//     // console.log('server is listening on port' + port);
+//     console.log(`server is listening on port ${port}`); // ES6 Standard
+// });
