@@ -8,16 +8,13 @@ import DBConnect from "./db/index.js"
 
 const app = express(); // express server created.
 dotenv.config();
-app.use(cors(
-    {
-        origin: process.env.cross_origin,
-        credentials: true
-    }
-));
+app.use(cors({
+    origin: process.env.cross_origin,
+    credentials: true
+}));
 
-app.use(express.urlencoded({ extended: false }));
-
-app.use(express.json()); // to let the express use json syntax.
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 
 // const connectDB = async () => {
