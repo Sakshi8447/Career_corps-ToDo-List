@@ -1,9 +1,9 @@
 import dotenv from 'dotenv' // for the dot env package
 import express from 'express';
 //import mongoose from 'mongoose'; // import the mongoose package for db 
-import { Task } from './src/models/task.models.js';
+import { Task } from './models/task.models.js';
 import cors from 'cors';
-import DBConnect from "./src/db/index.js"
+import DBConnect from "./db/index.js"
 
 
 const app = express(); // express server created.
