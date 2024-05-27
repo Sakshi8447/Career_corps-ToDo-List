@@ -9,7 +9,7 @@ function App() {
   const [task, setTask] = useState("");
   const [alltask, setAlltask] = useState([]);
 
-  const baseUrl = 'https://career-corps-todo-list.onrender.com'
+  const baseUrl = 'https://career-corps-todo-list.onrender.com/'
 
   useEffect(() => {
     axios.get(`${baseUrl}/getAllTask`).then(async (result) => {
